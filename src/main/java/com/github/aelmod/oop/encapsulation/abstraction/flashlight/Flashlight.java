@@ -4,17 +4,22 @@ public class Flashlight {
     private boolean state = false;
 
     public enum State {
-        TURNED_ON("flashlight switched on"),
-        TURNED_OFF("flashlight switched off");
+        ON("On"),
+        OFF("Off");
 
-        private String description;
+        private String name;
 
-        State(String description) {
-            this.description = description;
+        State(String name) {
+            this.name = name;
         }
 
-        public String getDescription() {
-            return description;
+        public String getName() {
+            return toString();
+        }
+
+        @Override
+        public String toString() {
+            return name;
         }
     }
 
@@ -34,8 +39,8 @@ public class Flashlight {
 
     public State getState() {
         if (state) {
-            return State.TURNED_ON;
+            return State.ON;
         }
-        return State.TURNED_OFF;
+        return State.OFF;
     }
 }
